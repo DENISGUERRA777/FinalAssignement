@@ -3,7 +3,7 @@ namespace NorthwindTradersApp.Domain.NorthwindDbEntities;
 /// Maps to the dbo.EmployeeTerritories table in the Northwind database.
 /// Schema: dbo , Primary Key: EmployeeId, TerritoryId
 /// </summary>
-public class EmployeeTerritory
+public sealed class EmployeeTerritory
 {
     public int EmployeeId { get; set; }
     public string TerritoryId { get; set; } = null!;

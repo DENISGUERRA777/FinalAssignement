@@ -3,7 +3,7 @@ namespace NorthwindTradersApp.Domain.NorthwindDbEntities;
 /// Maps to the dbo.Suppliers table in the Northwind database.
 /// Schema: dbo , Primary Key: SupplierId
 /// </summary>
-public class Supplier
+public sealed class Supplier
 {
     public int SupplierId { get; set; }
     public string CompanyName { get; set; } = null!;

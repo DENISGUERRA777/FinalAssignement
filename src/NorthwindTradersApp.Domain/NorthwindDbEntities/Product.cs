@@ -2,8 +2,9 @@ namespace NorthwindTradersApp.Domain.NorthwindDbEntities;
 /// <summary>
 /// Maps to the dbo.Products table in the Northwind database.
 /// Schema: dbo , Primary Key: ProductId, Foreign Keys: SupplierId, CategoryId
+///  references dbo.Suppliers, dbo.Categories respectively.
 /// </summary>
-public class Product
+public sealed class Product
 {
     public int ProductId { get; set; }
     public string ProductName { get; set; } = null!;

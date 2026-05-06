@@ -2,9 +2,10 @@
 
 /// <summary>
 /// Maps to the dbo.Orders table in the Northwind database.
-/// Schema: dbo , Primary Key: OrderId
+/// Schema: dbo , Primary Key: OrderId, Foreign Keys: CustomerId, EmployeeId, ShipVia
+///  references dbo.Customers, dbo.Employees, dbo.Shippers respectively.
 /// </summary>
-public class Order
+public sealed class Order
 {
     public int OrderId { get; set; }
     public int CustomerId { get; set; }

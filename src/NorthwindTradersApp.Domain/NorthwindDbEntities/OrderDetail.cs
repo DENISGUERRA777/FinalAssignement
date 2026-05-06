@@ -3,7 +3,7 @@ namespace NorthwindTradersApp.Domain.NorthwindDbEntities;
 /// Maps to the dbo.OrderDetails table in the Northwind database.
 /// Schema: dbo , Primary Key: OrderId, ProductId
 /// </summary>
-public class OrderDetail
+public sealed  class OrderDetail
 {
     public int OrderId { get; set; }
     public int ProductId { get; set; }

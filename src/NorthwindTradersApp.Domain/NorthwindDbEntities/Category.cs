@@ -4,7 +4,7 @@ namespace NorthwindTradersApp.Domain.NorthwindDbEntities;
 /// Maps to the dbo.Categories table in the Northwind database.
 /// Schema: dbo , Primary Key: CategoryId
 /// </summary>
-public class Category
+public sealed class Category
 {
     public int CategoryId { get; set; }
     public string CategoryName { get; set; } = null!;

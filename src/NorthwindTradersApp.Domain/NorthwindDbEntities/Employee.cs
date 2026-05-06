@@ -3,7 +3,7 @@ namespace NorthwindTradersApp.Domain.NorthwindDbEntities;
 /// Maps to the dbo.Employees table in the Northwind database.
 /// Schema: dbo , Primary Key: EmployeeId, Foreign Key: ReportsTo references EmployeeId in the same table
 /// </summary>
-public class Employee
+public sealed class Employee
 {
     public int EmployeeId { get; set; }
     public string LastName { get; set; } = null!;
