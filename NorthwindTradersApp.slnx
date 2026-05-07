@@ -1,2 +1,6 @@
 <Solution>
+	<Project Path="src/NorthwindTradersApp.Domain/NorthwindTradersApp.Domain.csproj" />
+	<Project Path="src/NorthwindTradersApp.Application/NorthwindTradersApp.Application.csproj" />
+	<Project Path="src/NorthwindTradersApp.Infrastructure/NorthwindTradersApp.Infrastructure.csproj" />
+	<Project Path="src/NorthwindTradersApp.Api/NorthwindTradersApp.Api.csproj" />
 </Solution>

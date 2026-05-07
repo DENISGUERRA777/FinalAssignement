@@ -7,9 +7,9 @@ namespace NorthwindTradersApp.Domain.Contracts;
 public interface IOrdersService
 {
     Task<IEnumerable<OrderDto>> GetAllOrdersAsync(CancellationToken ct= default);
-    Task<OrderDto?> SearchOrderAsync(int? OrderId, string? CustomerName, CancellationToken ct = default);
+    Task<IEnumerable<OrderDto>> SearchOrderAsync(int? OrderId, string? CustomerName, CancellationToken ct = default);
     Task<OrderDto> CreateOrderAsync(OrderDto orderDto, CancellationToken ct = default);
-    Task<OrderDto?> UpdateOrderAsync(int orderId, OrderDto orderDto, CancellationToken ct = default);
+    Task<OrderDto> UpdateOrderAsync(int orderId, OrderDto orderDto, CancellationToken ct = default);
     Task<bool> DeleteOrderAsync(int orderId, CancellationToken ct = default);
 }
 
@@ -20,9 +20,9 @@ public interface IOrdersService
 public interface IProductsService
 {
     Task<IEnumerable<ProductDto>> GetAllProductsAsync(CancellationToken ct = default);
-    Task<ProductDto?> SearchProductAsync(string? name, CancellationToken ct = default);
+    Task<IEnumerable<ProductDto>> SearchProductAsync(string? name, CancellationToken ct = default);
     Task<ProductDto> CreateProductAsync(ProductDto productDto, CancellationToken ct = default);
-    Task<ProductDto?> UpdateProductAsync(int productId, ProductDto productDto, CancellationToken ct = default);
+    Task<ProductDto> UpdateProductAsync(int productId, ProductDto productDto, CancellationToken ct = default);
     Task<bool> DeleteProductAsync(int productId, CancellationToken ct = default);
 }
 
@@ -33,9 +33,9 @@ public interface IProductsService
 public interface IOrdersRepository
 {
     Task<IEnumerable<OrderDto>> GetAllOrdersAsync(CancellationToken ct = default);
-    Task<OrderDto?> SearchOrderAsync(int? OrderId, string? CustomerName, CancellationToken ct = default);
+    Task<IEnumerable<OrderDto>> SearchOrderAsync(int? OrderId, string? CustomerName, CancellationToken ct = default);
     Task<OrderDto> CreateOrderAsync(OrderDto orderDto, CancellationToken ct = default);
-    Task<OrderDto?> UpdateOrderAsync(int orderId, OrderDto orderDto, CancellationToken ct = default);
+    Task<OrderDto> UpdateOrderAsync(int orderId, OrderDto orderDto, CancellationToken ct = default);
     Task<bool> DeleteOrderAsync(int orderId, CancellationToken ct = default);
 }
 
@@ -46,8 +46,8 @@ public interface IOrdersRepository
 public interface IProductsRepository
 {
     Task<IEnumerable<ProductDto>> GetAllProductsAsync(CancellationToken ct = default);
-    Task<ProductDto?> SearchProductAsync(string? name, CancellationToken ct = default);
+    Task<IEnumerable<ProductDto>> SearchProductAsync(string? name, CancellationToken ct = default);
     Task<ProductDto> CreateProductAsync(ProductDto productDto, CancellationToken ct = default);
-    Task<ProductDto?> UpdateProductAsync(int productId, ProductDto productDto, CancellationToken ct = default);
+    Task<ProductDto> UpdateProductAsync(int productId, ProductDto productDto, CancellationToken ct = default);
     Task<bool> DeleteProductAsync(int productId, CancellationToken ct = default);
 }

@@ -1,0 +1,16 @@
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\bin\Debug\net10.0\NorthwindTradersApp.Application.deps.json
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\bin\Debug\net10.0\NorthwindTradersApp.Application.dll
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\bin\Debug\net10.0\NorthwindTradersApp.Application.pdb
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\bin\Debug\net10.0\NorthwindTradersApp.Domain.dll
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\bin\Debug\net10.0\NorthwindTradersApp.Domain.pdb
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.csproj.AssemblyReference.cache
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.AssemblyInfoInputs.cache
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.AssemblyInfo.cs
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.csproj.CoreCompileInputs.cache
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.sourcelink.json
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\Northwin.B73601CC.Up2Date
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.dll
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\refint\NorthwindTradersApp.Application.dll
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\NorthwindTradersApp.Application.pdb
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Application\obj\Debug\net10.0\ref\NorthwindTradersApp.Application.dll

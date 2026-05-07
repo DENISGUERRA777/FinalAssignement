@@ -2,7 +2,7 @@
 using System.Reflection.Metadata;
 using Microsoft.EntityFrameworkCore;
 using NorthwindTradersApp.Domain.NorthwindDbEntities;
-namespace NorthwindTradersApp.Infrastructure;
+namespace NorthwindTradersApp.Infrastructure.Persistence;
 
 /// <summary>
 /// DbContext for the Northwind database.
@@ -14,17 +14,17 @@ public sealed class NorthwindDbContext : DbContext
     {
     }
 
-    public DbSet<Product> Products => SetIndexBinder<Product>();
-    public DbSet<Order> Orders => SetIndexBinder<Order>();
-    public DbSet<Category> Categories => SetIndexBinder<Category>();
-    public DbSet<Supplier> Suppliers => SetIndexBinder<Supplier>();
-    public DbSet<Customer> Customers => SetIndexBinder<Customer>();
-    public DbSet<Employee> Employees => SetIndexBinder<Employee>();
-    public DbSet<Shipper> Shippers => SetIndexBinder<Shipper>();
-    public DbSet<OrderDetail> OrderDetails => SetIndexBinder<OrderDetail>();
-    public DbSet<Region> Regions => SetIndexBinder<Region>();
-    public DbSet<Territory> Territories => SetIndexBinder<Territory>();
-    public DbSet<EmployeeTerritory> EmployeeTerritories => SetIndexBinder<EmployeeTerritory>();
+    public DbSet<Product> Products => Set<Product>();
+    public DbSet<Order> Orders => Set<Order>();
+    public DbSet<Category> Categories => Set<Category>();
+    public DbSet<Supplier> Suppliers => Set<Supplier>();
+    public DbSet<Customer> Customers => Set<Customer>();
+    public DbSet<Employee> Employees => Set<Employee>();
+    public DbSet<Shipper> Shippers => Set<Shipper>();
+    public DbSet<OrderDetail> OrderDetails => Set<OrderDetail>();
+    public DbSet<Region> Regions => Set<Region>();
+    public DbSet<Territory> Territories => Set<Territory>();
+    public DbSet<EmployeeTerritory> EmployeeTerritories => Set<EmployeeTerritory>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

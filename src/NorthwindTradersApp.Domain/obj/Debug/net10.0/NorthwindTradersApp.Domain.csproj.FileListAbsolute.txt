@@ -1,0 +1,12 @@
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\bin\Debug\net10.0\NorthwindTradersApp.Domain.deps.json
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\bin\Debug\net10.0\NorthwindTradersApp.Domain.dll
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\bin\Debug\net10.0\NorthwindTradersApp.Domain.pdb
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\NorthwindTradersApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\NorthwindTradersApp.Domain.AssemblyInfoInputs.cache
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\NorthwindTradersApp.Domain.AssemblyInfo.cs
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\NorthwindTradersApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\NorthwindTradersApp.Domain.sourcelink.json
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\NorthwindTradersApp.Domain.dll
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\refint\NorthwindTradersApp.Domain.dll
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\NorthwindTradersApp.Domain.pdb
+C:\Users\denis\OneDrive\Escritorio\RSM_TraineeProgram\FinalAssignement\src\NorthwindTradersApp.Domain\obj\Debug\net10.0\ref\NorthwindTradersApp.Domain.dll

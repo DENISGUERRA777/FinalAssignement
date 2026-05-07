@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NorthwindTradersApp.Domain.Contracts;
+using NorthwindTradersApp.Infrastructure.Repositories;
+using NorthwindTradersApp.Infrastructure.Persistence;
+
 namespace NorthwindTradersApp.Infrastructure;
 
 /// <summary>
@@ -16,11 +19,9 @@ public static class DependencyInjection
         services.AddDbContext<NorthwindDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("NorthwindDatabase")));
 
-        // Register repositories and services
+        // Register repositories 
         services.AddScoped<IOrdersRepository, OrdersRepository>();
         services.AddScoped<IProductsRepository, ProductsRepository>();
-        services.AddScoped<IOrdersService, OrdersService>();
-        services.AddScoped<IProductsService, ProductsService>();
 
         return services;
     }
