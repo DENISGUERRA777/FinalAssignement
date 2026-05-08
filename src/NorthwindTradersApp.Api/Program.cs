@@ -215,5 +215,94 @@ app.MapDelete("/api/products/{productId}", async (
 .WithName("DeleteProduct")
 .WithTags("Products");
 
-app.Run();
+// Customer endpoints
+///////////////////////////////////////////////////////////////
 
+/// get all customers with pagination
+app.MapGet("/api/customers", async (
+    [FromServices]ICustomersService customersService,
+    CancellationToken ct,
+    [FromQuery] int page = 1,
+    [FromQuery] int pageSize = 20) =>
+{
+    if (page < 1) page = 1;
+    if (pageSize < 1) pageSize = 20;
+    var customers = await customersService.GetAllCustomersAsync(ct);
+    var totalCount = customers.Count();
+    var items = customers.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+    var response = new
+    {
+        page,
+        pageSize,
+        totalCount,
+        items
+    };
+    return Results.Ok(response);
+})
+.WithName("GetAllCustomers")
+.WithTags("Customers");
+
+// Search customers by name
+app.MapGet("/api/customers/search", async (
+    [FromServices]ICustomersService customersService,
+    CancellationToken ct,
+    [FromQuery] string? name) =>
+{
+    var customers = await customersService.SearchCustomerAsync(name, ct);
+    return Results.Ok(customers);
+})
+.WithName("SearchCustomers")
+.WithTags("Customers");
+
+// Create a new customer
+app.MapPost("/api/customers", async (
+    [FromServices]ICustomersService customersService,
+    CancellationToken ct,
+    [FromBody] CustomerDto customerDto) =>
+{
+    var createdCustomer = await customersService.CreateCustomerAsync(customerDto, ct);
+    return Results.Created($"/api/customers/{createdCustomer.CustomerId}", createdCustomer);
+})
+.WithName("CreateCustomer")
+.WithTags("Customers");
+
+// Update an existing customer
+app.MapPut("/api/customers/{customerId}", async (
+    [FromServices]ICustomersService customersService,
+    CancellationToken ct,
+    [FromRoute] string customerId,
+    [FromBody] CustomerDto customerDto) =>
+{
+    try
+    {
+        var updatedCustomer = await customersService.UpdateCustomerAsync(customerId, customerDto, ct);
+        return Results.Ok(updatedCustomer);
+    }
+    catch (KeyNotFoundException ex)
+    {
+        return Results.NotFound(new { message = ex.Message });
+    }
+})
+.WithName("UpdateCustomer")
+.WithTags("Customers");
+
+// Delete a customer
+app.MapDelete("/api/customers/{customerId}", async (
+    [FromServices]ICustomersService customersService,
+    CancellationToken ct,
+    [FromRoute] string customerId) =>
+{
+    try
+    {
+        await customersService.DeleteCustomerAsync(customerId, ct);
+        return Results.NoContent();
+    }
+    catch (KeyNotFoundException ex)
+    {
+        return Results.NotFound(new { message = ex.Message });
+    }
+})
+.WithName("DeleteCustomer")
+.WithTags("Customers");
+
+app.Run();

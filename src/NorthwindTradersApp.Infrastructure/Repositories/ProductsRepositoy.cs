@@ -100,8 +100,6 @@ public sealed class ProductsRepository : IProductsRepository
             .Where(p => p.ProductId == productId)
             .ExecuteUpdateAsync(p => p
                 .SetProperty(p => p.ProductName, productDto.ProductName)
-                .SetProperty(p => p.SupplierId, productDto.SupplierId)
-                .SetProperty(p => p.CategoryId, productDto.CategoryId)
                 .SetProperty(p => p.QuantityPerUnit, productDto.QuantityPerUnit)
                 .SetProperty(p => p.UnitPrice, productDto.UnitPrice)
                 .SetProperty(p => p.UnitsInStock, productDto.UnitsInStock)

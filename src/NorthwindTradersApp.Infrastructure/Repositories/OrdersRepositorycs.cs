@@ -150,8 +150,6 @@ public sealed class OrdersRepository : IOrdersRepository
             throw new KeyNotFoundException($"Order with ID {orderId} not found.");
         }
 
-        existingOrder.CustomerId = orderDto.CustomerId;
-        existingOrder.EmployeeId = orderDto.EmployeeId;
         existingOrder.OrderDate = orderDto.OrderDate;
         existingOrder.RequiredDate = orderDto.RequiredDate;
         existingOrder.ShippedDate = orderDto.ShippedDate;
