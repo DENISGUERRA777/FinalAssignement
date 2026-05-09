@@ -119,7 +119,8 @@ All commands are run from the root directory of the project using a package mana
 | `npm run build`| Build for production                                    |
 | `npm run lint` | Run ESLint code linter                                  |
 | `npm run format` | Format code with Prettier                             |
-| `npm test`     | Run test suite (currently not configured)               |
+| `npm test`     | Run Vitest unit tests                                   |
+| `npm run test:unit` | Run a focused Vitest unit test file                |
 
 ---
 

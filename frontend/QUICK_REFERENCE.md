@@ -77,7 +77,8 @@ npm run lint             # Check code with ESLint
 npm run format           # Auto-format code with Prettier
 
 # Testing
-npm test                 # Run tests (currently none configured)
+npm test                 # Run Vitest unit tests
+npm run test:unit        # Run focused Vitest specs
 ```
 
 ---
@@ -193,6 +194,18 @@ Save
 
 Expected: Calculation correct, no performance issues
 ```
+
+## 🧪 Automated Frontend Tests
+
+The frontend now includes Vitest coverage for the order form page.
+
+```bash
+npm run test:unit -- src/pages/__tests__/OrderFormPage.spec.js
+```
+
+Current coverage includes:
+- Order form validation state for customer, employee, and product selection
+- Google Maps embed URL generation for validated addresses and fallback text search
 
 ---
 

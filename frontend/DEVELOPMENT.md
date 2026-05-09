@@ -785,6 +785,12 @@ watch(
 
 ## Testing Strategies
 
+### Automated Unit Tests
+- Use Vitest for component-level checks in `src/pages/__tests__/`
+- Mock Quasar composables and API services so tests stay isolated from the backend
+- Focus on derived state, validation gates, and URL generation logic
+- Run a single spec with `npm run test:unit -- src/pages/__tests__/OrderFormPage.spec.js`
+
 ### Manual Testing Checklist
 
 #### Order Form Testing
@@ -795,6 +801,7 @@ watch(
 - [ ] Add/remove line items
 - [ ] Verify order total calculation
 - [ ] Test form validation (disable save with invalid data)
+- [ ] Run Vitest coverage for order validation and map URL generation
 
 #### Navigation Testing
 - [ ] Navigate to order from shipments page

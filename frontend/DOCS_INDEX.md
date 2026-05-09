@@ -45,6 +45,7 @@ Welcome to the Northwind Traders Frontend Application documentation suite. This 
 **For**: QA engineers, testers, UAT coordinators  
 **Contains**:
 - Quick start guide for QA (2 minutes to running)
+- Automated Vitest coverage for the order form page
 - Detailed test cases for each feature:
   - Order Management (create, edit, delete, validation)
   - Address Validation & Mapping (7 test cases)

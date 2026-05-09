@@ -167,6 +167,7 @@
             { label: 'All Time', value: 'allTime' }
           ]"
         />
+        <q-btn outline icon="add" label="ADD NEW" @click="addNewOrder" class="q-ml-sm" />
         <q-btn-dropdown outline icon="file_download" label="Export" class="q-ml-sm">
           <q-list dense>
             <q-item clickable v-close-popup @click="handleExport('excel')">
@@ -769,6 +770,11 @@ function exportToPdf(exportRows) {
   })
 
   doc.save(`shipments-${year.value}.pdf`)
+}
+
+// Function to handle adding a new order
+function addNewOrder() {
+  router.push('/orders')
 }
 
 // Toggle the "This Month" filter applied to the table rows.

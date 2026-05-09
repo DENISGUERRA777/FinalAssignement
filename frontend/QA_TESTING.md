@@ -20,6 +20,23 @@ The app will open at `http://localhost:8080`
 
 ---
 
+## Automated Frontend Tests
+
+The frontend includes a Vitest setup for component-level checks.
+
+### Run the current test file
+
+```bash
+cd frontend/quasar-project
+npm run test:unit -- src/pages/__tests__/OrderFormPage.spec.js
+```
+
+### Current coverage
+- Order form validation state for customer, employee, and product selection
+- Google Maps embed URL generation for validated addresses and text-search fallback
+
+---
+
 ## Test Cases by Feature
 
 ## 1. Order Management
