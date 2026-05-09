@@ -3,4 +3,5 @@
 	<Project Path="src/NorthwindTradersApp.Application/NorthwindTradersApp.Application.csproj" />
 	<Project Path="src/NorthwindTradersApp.Infrastructure/NorthwindTradersApp.Infrastructure.csproj" />
 	<Project Path="src/NorthwindTradersApp.Api/NorthwindTradersApp.Api.csproj" />
+	<Project Path="tests/NorthwindTradersApp.Tests/NorthwindTradersApp.Tests.csproj" />
 </Solution>

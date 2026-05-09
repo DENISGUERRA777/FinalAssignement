@@ -306,3 +306,5 @@ app.MapDelete("/api/customers/{customerId}", async (
 .WithTags("Customers");
 
 app.Run();
+
+public partial class Program { }
