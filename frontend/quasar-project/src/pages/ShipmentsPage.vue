@@ -167,7 +167,16 @@
             { label: 'All Time', value: 'allTime' }
           ]"
         />
-        <q-btn outline icon="file_download" label="Export" class="q-ml-sm" />
+        <q-btn-dropdown outline icon="file_download" label="Export" class="q-ml-sm">
+          <q-list dense>
+            <q-item clickable v-close-popup @click="handleExport('excel')">
+              <q-item-section>Excel</q-item-section>
+            </q-item>
+            <q-item clickable v-close-popup @click="handleExport('pdf')">
+              <q-item-section>PDF</q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
       </template>
 
       <!-- Customer column with initials badge and full customer name -->
@@ -255,6 +264,9 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { getOrders } from 'src/services/ordersApi'
+import * as XLSX from 'xlsx'
+import { jsPDF } from 'jspdf'
+import { autoTable } from 'jspdf-autotable'
 
 // Reactive state for the loaded orders and page filters.
 const orders = ref([])
@@ -639,7 +651,123 @@ function formatCurrency(value) {
 
 // Navigate to the future order details page for the selected order.
 function goToOrderDetails(orderId) {
-  router.push(`/orders/${orderId}`)
+  router.push({ path: '/orders', query: { orderId } })
+}
+
+// Export the currently visible rows to Excel or PDF.
+function handleExport(format) {
+  const exportRows = rows.value.map((row) => ({
+    OrderId: row.orderId,
+    Customer: row.customer,
+    Products: row.productsSummary,
+    ProductBadges: row.productBadges.join(', '),
+    Region: row.region,
+    OrderDate: formatDate(row.orderDate),
+    Status: row.status,
+    Totals: safeNumber(row.totals),
+    Items: row.productCount,
+  }))
+
+  if (format === 'excel') {
+    exportToExcel(exportRows)
+    return
+  }
+
+  if (format === 'pdf') {
+    exportToPdf(exportRows)
+  }
+}
+
+function setHeaderTime(timeRange) {
+  if (timeRange === 'thisMonth') {
+    const now = new Date()
+    return `- ${now.toLocaleString('default', { month: 'long' })} ${now.getFullYear()}`
+  }
+  if (timeRange === 'thisYear') {
+    return `- ${new Date().getFullYear()}`
+  }
+  return 'All Time'
+
+}
+function exportToExcel(exportRows) {
+  const tableRows = exportRows.map((row) => ({
+    ...row,
+    Totals: formatCurrency(row.Totals),
+  }))
+  const worksheet = XLSX.utils.aoa_to_sheet([
+    ['Northwind Trades'],
+    [`Shipments Export - ${setHeaderTime(timeRange.value)}`],
+    [],
+    ['Order ID', 'Customer', 'Products', 'Badges', 'Region', 'Order Date', 'Status', 'Totals', 'Items'],
+    ...tableRows.map((row) => [
+      row.OrderId,
+      row.Customer,
+      row.Products,
+      row.ProductBadges,
+      row.Region,
+      row.OrderDate,
+      row.Status,
+      row.Totals,
+      row.Items,
+    ]),
+  ])
+  const workbook = XLSX.utils.book_new()
+
+  worksheet['!merges'] = [
+    { s: { c: 0, r: 0 }, e: { c: 8, r: 0 } },
+    { s: { c: 0, r: 1 }, e: { c: 8, r: 1 } },
+  ]
+
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Shipments')
+  XLSX.writeFile(workbook, `shipments-${year.value}.xlsx`)
+}
+
+function exportToPdf(exportRows) {
+  const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' })
+  const body = exportRows.map((row) => [
+    row.OrderId,
+    row.Customer,
+    row.Products,
+    row.ProductBadges,
+    row.Region,
+    row.OrderDate,
+    row.Status,
+    formatCurrency(row.Totals),
+    row.Items,
+  ])
+
+  doc.setFontSize(18)
+  doc.text('Northwind Trades', 40, 34)
+  doc.setFontSize(12)
+  doc.text(`Shipments Export - ${setHeaderTime(timeRange.value)}`, 40, 54)
+
+  autoTable(doc, {
+    startY: 72,
+    head: [[
+      'Order ID',
+      'Customer',
+      'Products',
+      'Badges',
+      'Region',
+      'Order Date',
+      'Status',
+      'Totals',
+      'Items',
+    ]],
+    body,
+    styles: {
+      fontSize: 8,
+      cellPadding: 4,
+    },
+    headStyles: {
+      fillColor: [15, 23, 42],
+    },
+    alternateRowStyles: {
+      fillColor: [248, 250, 252],
+    },
+  })
+
+  doc.save(`shipments-${year.value}.pdf`)
 }
 
 // Toggle the "This Month" filter applied to the table rows.

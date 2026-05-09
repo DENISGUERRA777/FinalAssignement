@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NorthwindTradersApp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+609ef696beeb7496a993cc6935c3d854e3a27724")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e86dd842c4b5cb0094975a7c772c038d03e09ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("NorthwindTradersApp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NorthwindTradersApp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

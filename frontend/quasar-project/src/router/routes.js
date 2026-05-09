@@ -34,6 +34,13 @@ const routes = [
     children: [{ path: '', component: () => import('pages/FleetPage.vue') }],
   },
 
+  //Orders page
+  {
+    path: '/orders',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/OrderFormPage.vue') }],
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
