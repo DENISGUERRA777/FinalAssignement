@@ -1,5 +1,6 @@
 <template>
 	<q-page class="q-pa-md order-form-page">
+		<!-- Header and primary actions -->
 		<div class="row items-center q-col-gutter-md q-mb-md">
 			<div class="col-12 col-md-5">
 				<div class="text-h5 text-weight-bold">Order Management</div>
@@ -36,6 +37,7 @@
 			</div>
 		</div>
 
+		<!-- Order details -->
 		<q-card flat bordered class="q-mb-md">
 			<q-card-section>
 				<div class="text-subtitle1 text-weight-medium q-mb-sm">Order Information</div>
@@ -90,6 +92,7 @@
 			</q-card-section>
 		</q-card>
 
+		<!-- Line items -->
 		<q-card flat bordered class="q-mb-md">
 			<q-card-section>
 				<div class="row items-center justify-between q-mb-sm">
@@ -154,6 +157,7 @@
 			</q-card-section>
 		</q-card>
 
+		<!-- Shipping address and validation -->
 		<q-card flat bordered class="q-mb-md">
 			<q-card-section>
 				<div class="row items-center justify-between q-mb-sm">
@@ -203,6 +207,7 @@
 			</q-card-section>
 		</q-card>
 
+		<!-- Map preview -->
 		<q-card flat bordered>
 			<q-card-section>
 				<div class="text-subtitle1 text-weight-medium q-mb-sm">Map Preview</div>
@@ -236,10 +241,12 @@ import { validateAddress } from 'src/services/GoogleValidationApi'
 const $q = useQuasar()
 const route = useRoute()
 
+// Loaded reference data
 const orders = ref([])
 const customers = ref([])
 const products = ref([])
 
+// Form and UI state
 const selectedOrderId = ref(null)
 const saving = ref(false)
 const deleting = ref(false)
@@ -254,6 +261,7 @@ const validatedAddress = ref({
 
 const form = ref(buildEmptyForm())
 
+// Dropdown options
 const customerOptions = computed(() => {
 	return customers.value.map((customer) => ({
 		label: `${customer.companyName || customer.contactName || customer.customerId} (${customer.customerId})`,
@@ -337,6 +345,7 @@ const mapEmbedUrl = computed(() => {
 
 let isProgrammaticAddressChange = false
 
+// Reset validated address whenever the user edits the shipping fields manually
 watch(
 	() => [form.value.shipAddress, form.value.shipCity, form.value.shipRegion, form.value.shipPostalCode, form.value.shipCountry],
 	() => {
@@ -353,11 +362,13 @@ watch(
 	},
 )
 
+// Initial data load
 onMounted(async () => {
 	await loadInitialData()
 	await syncOrderFromRoute()
 })
 
+// API data loading helpers
 async function loadInitialData() {
 	try {
 		const [ordersResponse, customersResponse, productsResponse] = await Promise.all([
@@ -386,6 +397,7 @@ function normalizeItems(response) {
 	return []
 }
 
+// Form builders
 function buildEmptyForm() {
 	const today = new Date().toISOString().slice(0, 10)
 	return {
@@ -416,6 +428,7 @@ function buildEmptyLineItem() {
 	}
 }
 
+// Line item actions
 function addLineItem() {
 	form.value.orderDetails.push(buildEmptyLineItem())
 }
@@ -442,6 +455,7 @@ function applyProductDefaults(index, productId) {
 	line.unitPrice = safeNumber(product.unitPrice)
 }
 
+// Existing order selection
 function handleOrderSelection(orderId) {
 	if (!orderId) {
 		return
@@ -487,6 +501,7 @@ function loadOrderInForm(order) {
 	}
 }
 
+// Address validation and map updates
 async function validateCurrentAddress() {
 	const queryParts = [
 		form.value.shipAddress,
@@ -543,6 +558,7 @@ async function validateCurrentAddress() {
 	}
 }
 
+// Save and delete actions
 async function saveOrder() {
 	if (!form.value.customerId) {
 		$q.notify({ type: 'warning', message: 'Customer is required.' })
@@ -680,6 +696,7 @@ async function syncOrderFromRoute() {
 	loadOrderInForm(selected)
 }
 
+// Data conversion helpers
 function toDateInput(value) {
 	if (!value) {
 		return ''
@@ -724,6 +741,7 @@ function toNullIfEmpty(value) {
 	return value
 }
 
+// Formatting and notification helpers
 function formatCurrency(value) {
 	return new Intl.NumberFormat('en-US', {
 		style: 'currency',
@@ -773,10 +791,12 @@ function notifyError(error, fallbackMessage) {
 </script>
 
 <style scoped>
+/* Page background */
 .order-form-page {
 	background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
 }
 
+/* Validated address callout */
 .validated-address {
 	border: 1px solid rgba(34, 197, 94, 0.32);
 	border-radius: 10px;
@@ -784,6 +804,7 @@ function notifyError(error, fallbackMessage) {
 	padding: 10px 12px;
 }
 
+/* Map container */
 .map-shell {
 	border: 1px solid rgba(148, 163, 184, 0.35);
 	border-radius: 12px;

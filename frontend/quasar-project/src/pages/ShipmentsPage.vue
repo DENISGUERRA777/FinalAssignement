@@ -37,12 +37,12 @@
               <svg :viewBox="`0 0 ${chartWidth} ${chartHeight}`" class="chart-svg" preserveAspectRatio="none" aria-label="Orders over time line chart" role="img">
                 <defs>
                   <linearGradient id="ordersFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(96, 165, 250, 0.28)" />
-                    <stop offset="100%" stop-color="rgba(96, 165, 250, 0)" />
+                    <stop offset="0%" stop-color="rgba(25, 118, 210, 0.28)" />
+                    <stop offset="100%" stop-color="rgba(25, 118, 210, 0)" />
                   </linearGradient>
                   <linearGradient id="shippedFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="rgba(192, 132, 252, 0.22)" />
-                    <stop offset="100%" stop-color="rgba(192, 132, 252, 0)" />
+                    <stop offset="0%" stop-color="rgba(156, 39, 176, 0.22)" />
+                    <stop offset="100%" stop-color="rgba(156, 39, 176, 0)" />
                   </linearGradient>
                 </defs>
 
@@ -422,7 +422,8 @@ const yearTotals = computed(() => ({
   delayed: rows.value.filter((order) => order.status === 'DELAYED').length,
 }))
 
-const regionPalette = ['#60a5fa', '#c084fc', '#14b8a6', '#f59e0b', '#fb7185', '#94a3b8']
+// Use app's primary/secondary/accent colors to stay consistent with global theme
+const regionPalette = ['#1976d2', '#26a69a', '#9c27b0', '#f2c037', '#fb7185', '#94a3b8']
 
 // Build the region buckets once and reuse them for the pie chart and legend.
 const regionEntries = computed(() => {
@@ -819,16 +820,16 @@ onMounted(loadShipments)
 
 .chart-line {
   stroke-width: 3.5;
-  filter: drop-shadow(0 0 14px rgba(96, 165, 250, 0.2));
+  filter: drop-shadow(0 0 14px rgba(25, 118, 210, 0.2));
 }
 
 .chart-line-orders {
-  stroke: #60a5fa;
+  stroke: #1976d2;
 }
 
 .chart-line-shipped {
-  stroke: #c084fc;
-  filter: drop-shadow(0 0 14px rgba(192, 132, 252, 0.18));
+  stroke: #9c27b0;
+  filter: drop-shadow(0 0 14px rgba(156, 39, 176, 0.18));
 }
 
 .chart-point {
@@ -836,12 +837,12 @@ onMounted(loadShipments)
 }
 
 .chart-point-orders {
-  fill: #60a5fa;
+  fill: #1976d2;
   stroke: #0f172a;
 }
 
 .chart-point-shipped {
-  fill: #c084fc;
+  fill: #9c27b0;
   stroke: #0f172a;
 }
 
@@ -866,11 +867,11 @@ onMounted(loadShipments)
 }
 
 .legend-primary {
-  background: #60a5fa;
+  background: #1976d2;
 }
 
 .legend-secondary {
-  background: #c084fc;
+  background: #9c27b0;
 }
 
 .chart-metric {
